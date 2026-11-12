@@ -28,20 +28,12 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        //
                         .requestMatchers(SWAGGER_WHITELIST).permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/public/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-
-                        // test
+                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-
-                        //  API:
-                        .requestMatchers(HttpMethod.GET, "/api/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/api/**").hasRole("ADMIN")
-
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
