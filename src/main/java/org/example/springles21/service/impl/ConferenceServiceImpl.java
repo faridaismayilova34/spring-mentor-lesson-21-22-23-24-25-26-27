@@ -26,7 +26,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     private final TalkService talkService;
 
     @Override
-    @Transactional   // EKSPERİMENT: ikinci yoxlamada bu sətri şərhə al
+    @Transactional
     public SpeakerWithTalksResponseDto registerSpeakerWithTalks(SpeakerWithTalksRequestDto requestDto) {
         log.debug("Registering speaker {} with {} talks",
                 requestDto.getSpeaker().getEmail(), requestDto.getTalks().size());

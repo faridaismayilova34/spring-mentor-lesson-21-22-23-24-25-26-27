@@ -81,7 +81,7 @@ public class TalkServiceImpl implements TalkService {
             log.warn("Invalid direction: {}", direction);
             throw new BusinessRuleException("Direction must be asc or desc");
         }
-        // id tie-breaker: sort dəyərləri təkrarlananda səhifələr qarışmasın
+
         Sort sort = Sort.by(dir, sortBy).and(Sort.by(Sort.Direction.ASC, "id"));
         return PageRequest.of(page, size, sort);
     }

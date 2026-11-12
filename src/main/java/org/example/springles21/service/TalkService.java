@@ -21,12 +21,3 @@ public interface TalkService {
 
 
 
-
-
-//public interface TalkService {
-//    TalkResponseDto createTalk(TalkRequestDto requestDto);
-//    List<TalkResponseDto> getAllTalks();
-//    TalkResponseDto getTalkById(Long id);
-//    TalkResponseDto updateTalk(Long id, TalkRequestDto requestDto);
-//    void deleteTalk(Long id);
-//}
